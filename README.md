@@ -1,4 +1,4 @@
-# Patient
+# Paciente
   COMO desarrollador QUIERO que me confirme CUANDO mi solicitud se creo correctamente en la base de datos.
 
 
