@@ -16,6 +16,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey : "doctorId",
         constraints: false
       });
+      doctor.belongsToMany(models.Patient, {
+        foreignKey: "doctorId",
+        through:"doctorId_patientId",
+        constraints: false
+        
+      });
     }
   }
   doctor.init({

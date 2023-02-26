@@ -29,7 +29,7 @@ module.exports = {
                 password: passwordHash
             })
 
-            res.status(200).json(patient)
+            res.status(200).send({message: "You have successfully registered"})
         } catch (error) {
             res.send(`[Error User patients registers] - [patients - POST]: ${error}`)
         }

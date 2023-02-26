@@ -1,4 +1,4 @@
-const { doctor, Register } = require('../../database/models');
+const { doctor, Register, Patient } = require('../../database/models');
 const { compare } = require("../../helpers/handleBcrypt");
 
 
@@ -23,6 +23,9 @@ module.exports = {
                     include: [
                         {
                             model: Register
+                        }, 
+                        {
+                            model:Patient
                         }
                     ]
                 })

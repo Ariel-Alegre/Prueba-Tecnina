@@ -31,7 +31,7 @@ module.exports = {
 
       if (hospitalRegister) {
 
-        res.status(200).send(hospitalRegister)
+        res.status(200).send({message: "You have successfully registered"})
       }
     } catch (error) {
       res.send(

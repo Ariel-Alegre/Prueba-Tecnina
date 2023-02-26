@@ -17,11 +17,11 @@ module.exports = {
         allowNull: false,
       },
       address: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       birthdate: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
 
