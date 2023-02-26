@@ -25,7 +25,7 @@ module.exports = {
             }
 
         } catch (error) {
-            console.log(
+            res.send(
                 `[Login Users Doctor] - [Login_Doctor - POST]: ${error}`
             )
         }
