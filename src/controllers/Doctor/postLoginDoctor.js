@@ -36,7 +36,7 @@ module.exports = {
             res.send(
                 `[Login Users Doctor] - [Login_Doctor - POST]: ${error}`
             )
-        }
+        };
     }
 };
 

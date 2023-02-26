@@ -10,7 +10,7 @@ module.exports = {
             const oneHospital = await Hospital.findByPk(hospitalId)
 
             if (!oneHospital) {
-                res.status(404).json({ message: "El usuario no se encuentra" })
+                res.status(404).json({ message: "User not found" })
             } else {
                 const passwordHash = await encrypt(password)
                 const HospitalUpdate = await oneHospital.update({

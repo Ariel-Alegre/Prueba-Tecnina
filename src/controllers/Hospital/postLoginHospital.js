@@ -12,24 +12,23 @@ module.exports = {
                 }
             })
 
-            
             if (!userHospital) {
                 res.status(404).send({ error: 'User not found' })
             }
-        
-           const checkPassword = await compare(password, userHospital.password)
-            
+
+            const checkPassword = await compare(password, userHospital.password)
+
             if (checkPassword) {
                 const hospital = await Hospital.findAll({
                     include: [
-                      {
-                        model:doctor
-                      }, 
-                      {
-                        model: Register
-                      }
+                        {
+                            model: doctor
+                        },
+                        {
+                            model: Register
+                        }
                     ]
-                  })
+                })
                 res.status(200).json(hospital)
             } else {
                 res.status(409).json({ Error: 'Invalid password' })

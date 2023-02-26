@@ -11,25 +11,25 @@ module.exports = {
       },
       patientId: {
         type: Sequelize.INTEGER,
-        references:{
+        references: {
           model: "Patient",
           key: "id"
         },
-        onDelete:"CASCADE",
-        onUpdate:"CASCADE",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       doctorId: {
         type: Sequelize.INTEGER,
-        references:{
+        references: {
           model: "doctor",
           key: "id"
         },
-        onDelete:"CASCADE",
-        onUpdate:"CASCADE",
-      
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+
       },
       observations: {
-        type: Sequelize.STRING,  
+        type: Sequelize.STRING,
       },
       speciality: {
         type: Sequelize.STRING

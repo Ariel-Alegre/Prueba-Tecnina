@@ -8,7 +8,7 @@ module.exports = {
 
     try {
       if (!name || !address || !email || !phone || !identify || !password) {
-        res.status(404).json({ message: "No completaste los datos, porfavor complete los datos" })
+        res.status(404).json({ message: "Please complete the form" })
       }
 
       const checkInfo = await doctor.findAll();
@@ -17,7 +17,7 @@ module.exports = {
 
 
       if (checkEmail || checkDni) {
-        return res.status(404).send({ msg: "El usuario ya esta registrado" });
+        return res.status(404).send({ msg: "The doctor is already registered" });
       }
 
       const hashPassword = await encrypt(password)

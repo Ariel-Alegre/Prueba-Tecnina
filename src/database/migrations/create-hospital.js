@@ -11,29 +11,29 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
         allowNull: false,
-        
+
       },
       address: {
         type: Sequelize.STRING,
         allowNull: false,
-        
+
       },
       medical_services: {
         type: Sequelize.ARRAY(Sequelize.STRING),
         allowNull: false,
-        
+
       },
       identify: {
         allowNull: false,
         type: Sequelize.STRING,
-        unique:true,
+        unique: true,
         primaryKey: true,
       },
       email: {
         allowNull: false,
         type: Sequelize.STRING,
         allowNull: false,
-        unique:true
+        unique: true
 
       },
       phone: {

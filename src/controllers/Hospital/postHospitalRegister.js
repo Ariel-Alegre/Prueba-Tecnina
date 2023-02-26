@@ -7,14 +7,14 @@ module.exports = {
     const { name, address, medical_services, email, phone, identify, password } = req.body
     try {
       if (!name || !address || !medical_services || !email || !phone || !identify || !password) {
-        return res.status(404).send({message: "Completar los datos de registro"})
+        return res.status(404).send({ message: "Please complete the form" })
       }
       const checkInfo = await Hospital.findAll();
       const checkEmail = checkInfo.some(data => data.email === email)
       const checkDni = checkInfo.some(data => data.identify === identify)
 
       if (checkEmail || checkDni) {
-         res.status(404).send({ message: "El usuario ya se encuentra registrado" })
+        res.status(404).send({ message: "The hospital is already registered" })
 
       }
 
@@ -30,8 +30,8 @@ module.exports = {
       })
 
       if (hospitalRegister) {
-       
-         res.status(200).send(hospitalRegister)
+
+        res.status(200).send(hospitalRegister)
       }
     } catch (error) {
       res.send(
