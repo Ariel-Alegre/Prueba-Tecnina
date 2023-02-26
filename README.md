@@ -19,8 +19,7 @@ COMO desarrollador QUIERO poder cambiar la contraseña CUANDO se lo solicito y l
 
 # Paciente y Doctor
 
- Se podrá crear un usuario paciente y tambien un usuario doctor, en la que tambien se podran registrar, ingresar y actualizar su contraseña. Las contraseñas que se guardan en la base de datos estan echas de manera alfanumérica, es decir que se guardara una mezcla de letras y números, para asi tener más protección en los datos delos usuarios. En el caso paciente, al ingresar al sistema va a poder ver sus datos personales, sus registros y el doctor que lo atendió.
-  En el caso del doctor al ingresar va a poder ver sus datos personales, los registros y el paciente que fue atendido por el.
+Se podrá crear un usuario paciente y también un usuario doctor, en la que también se podrán registrar, ingresar y actualizar su contraseña. Las contraseñas que se guardan en la base de datos están hechas de manera alfanumérica, es decir que se guardara una mezcla de letras y números, para así tener más protección en los datos de los usuarios. En el caso paciente, al ingresar al sistema va a poder ver sus datos personales, sus registros y el doctor que lo atendió. En el caso del doctor al ingresar va a poder ver sus datos personales, los registros y el paciente que fue atendido por el.
 
 
 
