@@ -6,15 +6,28 @@ module.exports = (sequelize, DataTypes) => {
   class Register extends Model {
     static associate(models) {
       // define association here
-      
+      Register.belongsToMany(models.Patient, {
+        through: "registerId_patientId",
+        foreignKey: "registerId"
+      });
+      Register.belongsToMany(models.doctor, {
+        through: "doctorId_Register",
+        foreignKey : "registerId",
+        constraints: false
+      });
+      Register.belongsToMany(models.doctor, {
+        through: "HospitalId_Register",
+        foreignKey : "registerId",
+        constraints: false
+      });
     }
   }
   Register.init({
     patientId: DataTypes.INTEGER,
     doctorId: DataTypes.INTEGER,
-    observaciones: DataTypes.STRING,
+    observations: DataTypes.STRING,
     speciality: DataTypes.STRING,
-    estadodesalud: DataTypes.STRING
+    health_condition: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Register',

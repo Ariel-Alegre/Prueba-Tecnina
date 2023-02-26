@@ -1,16 +1,16 @@
 const { Router } = require('express');
 const router = Router();
-const { Register_Doctor } = require('../controllers/Autho_Doctor/Register_Doctor');
-const { Login_Doctor } = require('../controllers/Autho_Doctor/Login_Doctor');
-const { editDoctor } = require('../controllers/Autho_Doctor/Edit_Doctor');
+const { RegisterDoctor } = require('../controllers/Doctor/postRegisterDoctor');
+const { LoginDoctor } = require('../controllers/Doctor/postLoginDoctor');
+const { DoctorPassword } = require('../controllers//Doctor/putDoctorPassword');
 
 
 
 
 
-router.post("/register", Register_Doctor);
-router.post("/login", Login_Doctor);
-router.post("/:doctorId", editDoctor);
+router.post("/register", RegisterDoctor);
+router.post("/login", LoginDoctor);
+router.put("/:doctorId", DoctorPassword);
 
 
 

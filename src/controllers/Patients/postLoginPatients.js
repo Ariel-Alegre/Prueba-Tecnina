@@ -1,9 +1,9 @@
-const { Patient } = require('../../database/models');
+const { Patient, Register, doctor } = require('../../database/models');
 const { compare } = require("../../helpers/handleBcrypt");
 
 
 module.exports = {
-    Login_patients: async (req, res, next) => {
+    LoginPatient: async (req, res, next) => {
         const { identify, password } = req.body;
      
         try {
@@ -19,11 +19,22 @@ module.exports = {
             const checkPassword = await compare(password, userPatient.password)
           
             if (checkPassword) {
-               res.status(200).send(userPatient)
+                const patientRegister = await Patient.findAll({
+                    include:[
+                        {
+                            model: Register
+                        },
+                        {
+                            model:doctor
+                        }
+                    ]
+                })
+               res.status(200).send(patientRegister)
             } else {
            
                 res.status(409).json({ Error: 'Invalid password' })
             }
+    
 
         } catch (error) {
              res.send(

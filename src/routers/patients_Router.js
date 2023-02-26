@@ -1,13 +1,13 @@
 const { Router } = require('express');
 const router = Router();
-const { patients } = require('../controllers/Patients/Registers_Patients');
-const { Login_patients } = require('../controllers/Patients/Login_Patients');
-const { editPatient } = require('../controllers/Patients/Edit_Patients');
+const { RegisterPatient } = require('../controllers/Patients/postRegistersPatients');
+const { LoginPatient } = require('../controllers/Patients/postLoginPatients');
+const { editPatientPassword } = require('../controllers/Patients/putPatientsPassword');
 
 
-router.post('/register', patients)
-router.post('/login', Login_patients)
-router.put('/:id', editPatient)
+router.post('/register', RegisterPatient)
+router.post('/login', LoginPatient)
+router.put('/:id', editPatientPassword)
 
 
 

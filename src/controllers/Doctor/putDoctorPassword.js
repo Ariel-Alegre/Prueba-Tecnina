@@ -1,13 +1,13 @@
-const { Patient } = require('../../database/models');
+const { doctor } = require('../../database/models');
 const { encrypt } = require("../../helpers/handleBcrypt")
 
 module.exports = {
-    editPatient: async (req, res, next) => {
-        const { id } = req.params
+    DoctorPassword: async (req, res, next) => {
+        const { doctorId } = req.params
         const { password } = req.body
 
         try {
-            const onePatient = await Patient.findByPk(id)
+            const onePatient = await doctor.findByPk(doctorId)
 
             if (!onePatient) {
                 res.status(404).json({ message: "El usuario no se encuentra" })

@@ -11,10 +11,21 @@ module.exports = {
       },
       patientId: {
         type: Sequelize.INTEGER,
-     
+        references:{
+          model: "Patient",
+          key: "id"
+        },
+        onDelete:"CASCADE",
+        onUpdate:"CASCADE",
       },
       doctorId: {
         type: Sequelize.INTEGER,
+        references:{
+          model: "doctor",
+          key: "id"
+        },
+        onDelete:"CASCADE",
+        onUpdate:"CASCADE",
       
       },
       observations: {

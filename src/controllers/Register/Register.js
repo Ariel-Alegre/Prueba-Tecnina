@@ -1,18 +1,22 @@
-const { Hospital } = require('../../database/models');
-const { endpointResponse } = require('../../helpers/success');
-const createHttpError = require('http-errors')
-const { ErrorObject } = require("../../helpers/error");
-const { compare } = require("../../helpers/handleBcrypt");
+const { Register  } = require('../../database/models');
+
 
 
 module.exports = {
     Registers: async (req, res, next) => {
-        const { email, password } = req.body;
+        const {patientId ,observations, health_condition } = req.body
+        
         try {
-          
+            const registers = await Register.create({
+                patientId,
+                observations,
+                health_condition
+            })
+    
+          res.send(registers)
 
         } catch (error) {
-            console.log(
+            res.send(
                 `[Registers] - [Registers - GET]: ${error}`
             )
         }

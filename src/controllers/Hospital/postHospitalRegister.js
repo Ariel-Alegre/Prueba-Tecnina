@@ -1,9 +1,9 @@
-const { Hospital } = require('../../database/models');
+const { Hospital, Register, doctor } = require('../../database/models');
 const { encrypt } = require("../../helpers/handleBcrypt");
 
 
 module.exports = {
-  Register_Hospital: async (req, res, next) => {
+  RegisterHospital: async (req, res, next) => {
     const { name, address, medical_services, email, phone, identify, password } = req.body
     try {
       if (!name || !address || !medical_services || !email || !phone || !identify || !password) {
@@ -30,6 +30,7 @@ module.exports = {
       })
 
       if (hospitalRegister) {
+       
          res.status(200).send(hospitalRegister)
       }
     } catch (error) {

@@ -2,7 +2,7 @@ const { Hospital } = require('../../database/models');
 const { encrypt } = require("../../helpers/handleBcrypt")
 
 module.exports = {
-    editHospital: async (req, res, next) => {
+    editHospitalPasssword: async (req, res, next) => {
         const { hospitalId } = req.params
         const { password } = req.body
 

@@ -5,10 +5,17 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Patient extends Model {
     static associate(models) {
-      Patient.hasMany(models.Register, {
-        foreignKey: 'patientId'
+      Patient.belongsToMany(models.Register, {
+        foreignKey: "patientId",
+        through:"registerId_patientId",
 
       })
+
+      Patient.belongsToMany(models.doctor, {
+        foreignKey: "patientId",
+        through:"doctorId_patientId",
+        
+      } )
     }
   }
   Patient.init({

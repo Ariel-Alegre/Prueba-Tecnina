@@ -1,14 +1,14 @@
-const { Hospital } = require('../../database/models');
+const { Hospital, doctor, Register } = require('../../database/models');
 const { compare } = require("../../helpers/handleBcrypt");
 
 
 module.exports = {
-    Login_Hospital: async (req, res, next) => {
-        const { email, password } = req.body;
+    LoginHospital: async (req, res, next) => {
+        const { identify, password } = req.body;
         try {
             const userHospital = await Hospital.findOne({
                 where: {
-                    email: email
+                    identify: identify
                 }
             })
 
@@ -20,7 +20,17 @@ module.exports = {
            const checkPassword = await compare(password, userHospital.password)
             
             if (checkPassword) {
-                res.status(200).json(userHospital)
+                const hospital = await Hospital.findAll({
+                    include: [
+                      {
+                        model:doctor
+                      }, 
+                      {
+                        model: Register
+                      }
+                    ]
+                  })
+                res.status(200).json(hospital)
             } else {
                 res.status(409).json({ Error: 'Invalid password' })
             }
